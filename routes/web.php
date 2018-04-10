@@ -15,5 +15,6 @@
 //     return view('welcome');
 // });
 
+Route::get('/santri', 'SantriController@index')->name('santri.index');
 Route::get('/santri/create', 'SantriController@create')->name('santri.create');
 Route::post('/santri', 'SantriController@store')->name('santri.store');
