@@ -24,14 +24,15 @@ class SantriController extends Controller
     // this is for validation
     $request->validate([
       'nama' => 'required',
-      'umur' => 'required',
+      'umur' => 'required|integer',
       'alamat' => 'required',
       'jenis_kelamin' => 'required'
     ]);
 
     // dd($request->all());
 
-    $nama = $request->nama;
+    /* cara ke 1 */
+    /* $nama = $request->nama;
     $umur = $request->umur;
     $alamat = $request->alamat;
     $jenis_kelamin = $request->jenis_kelamin;
@@ -41,7 +42,18 @@ class SantriController extends Controller
       'umur' => $umur,
       'alamat' => $alamat,
       'jenis_kelamin' => $jenis_kelamin
-    ]);
+    ]); */
+
+    /* cara ke 2 */
+    /* $data['nama'] = $request->nama;
+    $data['umur'] = $request->umur;
+    $data['alamat'] = $request->alamat;
+    $data['jenis_kelamin'] = $request->jenis_kelamin;
+
+    Santri::create($data); */
+
+    /* cara ke 3 */
+    Santri::create($request->all());
 
     // Santri::create($request->all());
 
