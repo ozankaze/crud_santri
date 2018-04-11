@@ -61,4 +61,34 @@ class SantriController extends Controller
     // return view('santri.create');
     return redirect()->route('santri.index');
   }
+
+  public function show($id)
+  {
+    $santris = Santri::findOrFail($id);
+
+    // dd($santri);
+
+    return view('santri.show', compact('santris'));
+  }
+
+  public function edit($id)
+  {
+    $santris = Santri::findOrFail($id);
+
+    return view('santri.edit', compact('santris'));
+  }
+
+  public function update(Request $request, $id)
+  {
+    $santris = Santri::findOrFail($id);
+
+    $santris->nama = $request->nama;
+    $santris->umur = $request->umur;
+    $santris->alamat = $request->alamat;
+    $santris->jenis_kelamin = $request->jenis_kelamin;
+    $santris->save();
+
+    return redirect()->route('santri.index');
+    
+  }
 }
